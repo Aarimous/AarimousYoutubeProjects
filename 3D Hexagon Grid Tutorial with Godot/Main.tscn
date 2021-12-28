@@ -13,4 +13,5 @@ transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 7
 
 [node name="Map" type="Spatial" parent="."]
 script = ExtResource( 1 )
+_cellSize = Vector2( 1.03, 1.03 )
 _hexagonTilePackedScene = ExtResource( 2 )

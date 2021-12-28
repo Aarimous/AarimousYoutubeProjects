@@ -2,7 +2,7 @@ extends Spatial
 
 #For 2D games this will be the hight/width of your hexagon sprite
 export var _cellSize : Vector2 = Vector2(1,1)
-export var _mapSize : Vector2 = Vector2(5,5)
+export var _mapSize : Vector2 = Vector2(5,10)
 export var _hexagonTilePackedScene : PackedScene
 
 func _ready():
@@ -10,8 +10,8 @@ func _ready():
 	
 			
 func _generateHexTileMap():
-	for x in range(_mapSize.x):
-		for y in range(_mapSize.y):
+	for x in range(-10,_mapSize.x):
+		for y in range(-_mapSize.y,5):
 			var hexTile = _hexagonTilePackedScene.instance()
 			var cell = Vector2(x,y)
 			var tilePosition =  _cellToPixel(cell)
