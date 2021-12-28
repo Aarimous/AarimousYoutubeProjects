@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://HexagonTile.gd" type="Script" id=1]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Cylinder"
@@ -15,6 +17,7 @@ surfaces/0 = {
 }
 
 [node name="HexagonTile" type="Spatial"]
+script = ExtResource( 1 )
 
 [node name="Cylinder" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
