@@ -4,6 +4,8 @@
 [ext_resource path="res://HexagonTile.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Environment" id=1]
+background_mode = 1
+background_color = Color( 0.2926, 0.31445, 0.38, 1 )
 
 [node name="Main" type="Spatial"]
 
@@ -11,7 +13,7 @@
 transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 8, 10 )
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 7, 12 )
 
 [node name="Map" type="Spatial" parent="."]
 script = ExtResource( 1 )
