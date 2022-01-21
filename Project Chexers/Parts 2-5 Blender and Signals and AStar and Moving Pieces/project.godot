@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Chexers Part 2 - Adding Pieces"
+config/name="Parts 2-5 Blender and Signals and AStar and Moving Pieces"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
