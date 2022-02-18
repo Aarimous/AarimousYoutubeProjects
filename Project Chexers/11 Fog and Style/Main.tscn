@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Map.gd" type="Script" id=1]
+[ext_resource path="res://HexagonTile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Piece.tscn" type="PackedScene" id=3]
+[ext_resource path="res://CameraPivot.gd" type="Script" id=4]
+[ext_resource path="res://Roboto-Bold.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://UI.gd" type="Script" id=6]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_color = Color( 0.0745098, 0.454902, 0.560784, 1 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 0.2
+fog_enabled = true
+fog_color = Color( 0.0745098, 0.454902, 0.560784, 1 )
+fog_sun_color = Color( 0.0745098, 0.454902, 0.560784, 1 )
+fog_depth_enabled = false
+fog_height_enabled = true
+fog_height_min = 1.6
+fog_height_max = -1.4
+fog_height_curve = 0.420448
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 5 )
+
+[node name="Main" type="Spatial"]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0 )
+
+[node name="Map" type="Spatial" parent="."]
+script = ExtResource( 1 )
+_cellSize = Vector2( 1.1, 1.1 )
+_hexagonTilePackedScene = ExtResource( 2 )
+_piecePackedScene = ExtResource( 3 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="CameraPivot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+script = ExtResource( 4 )
+
+[node name="Camera" type="Camera" parent="CameraPivot"]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 7, 8 )
+
+[node name="UI" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 40.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerTurnLabel" type="Label" parent="UI"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -91.5
+margin_right = 91.5
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 2 )
+text = "Player 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
