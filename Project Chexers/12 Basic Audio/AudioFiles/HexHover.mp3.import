@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HexHover.mp3-122b5a97b3f6759c6f87076b2283eb65.mp3str"
+
+[deps]
+
+source_file="res://AudioFiles/HexHover.mp3"
+dest_files=[ "res://.import/HexHover.mp3-122b5a97b3f6759c6f87076b2283eb65.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

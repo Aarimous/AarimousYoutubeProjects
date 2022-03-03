@@ -26,7 +26,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="11 Fog and Style - Chexers"
+config/name="12 Basic Audio - Chexers"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
