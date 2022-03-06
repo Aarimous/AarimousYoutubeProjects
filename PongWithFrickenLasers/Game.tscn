@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game.gd" type="Script" id=3]
+[ext_resource path="res://ScoreFont.tres" type="DynamicFont" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 528, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 21.5, 316 )
+
+[sub_resource type="Environment" id=3]
+background_mode = 4
+glow_enabled = true
+glow_strength = 1.1
+glow_blend_mode = 0
+glow_bicubic_upscale = true
+glow_high_quality = true
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 24, 256 )
+
+[node name="Opp" parent="." instance=ExtResource( 1 )]
+position = Vector2( 996, 256 )
+rotation = 3.14159
+isHuman = false
+
+[node name="Ball" parent="." instance=ExtResource( 2 )]
+position = Vector2( 512, 256 )
+
+[node name="TopBotStaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="TopCollisionShape2D" type="CollisionShape2D" parent="TopBotStaticBody2D"]
+position = Vector2( 512, -8 )
+shape = SubResource( 1 )
+
+[node name="BotCollisionShape2D2" type="CollisionShape2D" parent="TopBotStaticBody2D"]
+position = Vector2( 512, 608 )
+shape = SubResource( 1 )
+
+[node name="Player1GoalArea2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1GoalArea2D"]
+position = Vector2( -21.5, 299 )
+shape = SubResource( 2 )
+
+[node name="Player2GoalArea2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2GoalArea2D"]
+position = Vector2( 1048, 300 )
+shape = SubResource( 2 )
+
+[node name="Player1Score" type="Label" parent="."]
+margin_left = 360.0
+margin_top = 208.0
+margin_right = 400.0
+margin_bottom = 308.0
+custom_fonts/font = ExtResource( 4 )
+text = "4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player2Score" type="Label" parent="."]
+margin_left = 624.0
+margin_top = 208.0
+margin_right = 664.0
+margin_bottom = 308.0
+custom_fonts/font = ExtResource( 4 )
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+
+[connection signal="body_entered" from="Player1GoalArea2D" to="." method="_on_Player1GoalArea2D_body_entered"]
+[connection signal="body_entered" from="Player2GoalArea2D" to="." method="_on_Player2GoalArea2D_body_entered"]
