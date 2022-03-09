@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mac-quack.mp3-f154a8d138033d52674dbd9c85465857.mp3str"
+
+[deps]
+
+source_file="res://AudioFiles/mac-quack.mp3"
+dest_files=[ "res://.import/mac-quack.mp3-f154a8d138033d52674dbd9c85465857.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

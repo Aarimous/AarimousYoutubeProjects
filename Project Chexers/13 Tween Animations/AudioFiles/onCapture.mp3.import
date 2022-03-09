@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/onCapture.mp3-e9e2566440e0618ebb22f40752739595.mp3str"
+
+[deps]
+
+source_file="res://AudioFiles/onCapture.mp3"
+dest_files=[ "res://.import/onCapture.mp3-e9e2566440e0618ebb22f40752739595.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
