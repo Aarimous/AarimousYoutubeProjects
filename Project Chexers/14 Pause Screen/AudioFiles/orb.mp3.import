@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/orb.mp3-6b0239388942e2f7a1d723b10f1402e2.mp3str"
+
+[deps]
+
+source_file="res://AudioFiles/orb.mp3"
+dest_files=[ "res://.import/orb.mp3-6b0239388942e2f7a1d723b10f1402e2.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

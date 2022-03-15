@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Hex3.mp3-09d51f5feee671a661de46288a33d290.mp3str"
+
+[deps]
+
+source_file="res://AudioFiles/Hex3.mp3"
+dest_files=[ "res://.import/Hex3.mp3-09d51f5feee671a661de46288a33d290.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
