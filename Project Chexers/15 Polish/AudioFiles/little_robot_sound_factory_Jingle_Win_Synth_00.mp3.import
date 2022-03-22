@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/little_robot_sound_factory_Jingle_Win_Synth_00.mp3-87f537dff7be5f81b741ea5c1b4ab1e4.mp3str"
+
+[deps]
+
+source_file="res://AudioFiles/little_robot_sound_factory_Jingle_Win_Synth_00.mp3"
+dest_files=[ "res://.import/little_robot_sound_factory_Jingle_Win_Synth_00.mp3-87f537dff7be5f81b741ea5c1b4ab1e4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

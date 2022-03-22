@@ -1,0 +1,293 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Map.gd" type="Script" id=1]
+[ext_resource path="res://HexagonTile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Piece.tscn" type="PackedScene" id=3]
+[ext_resource path="res://CameraPivot.gd" type="Script" id=4]
+[ext_resource path="res://Roboto-Bold.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://UI.gd" type="Script" id=6]
+[ext_resource path="res://PauseScreen.gd" type="Script" id=7]
+[ext_resource path="res://Main.gd" type="Script" id=8]
+[ext_resource path="res://UIFont.tres" type="DynamicFont" id=9]
+[ext_resource path="res://WinScreen.gd" type="Script" id=10]
+[ext_resource path="res://AudioFiles/cartoon_success_fanfair.mp3" type="AudioStream" id=11]
+[ext_resource path="res://AudioFiles/mapIconBase.png" type="Texture" id=12]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_color = Color( 0.0745098, 0.454902, 0.560784, 1 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 0.2
+fog_enabled = true
+fog_color = Color( 0.0745098, 0.454902, 0.560784, 1 )
+fog_sun_color = Color( 0.0745098, 0.454902, 0.560784, 1 )
+fog_depth_enabled = false
+fog_height_enabled = true
+fog_height_min = 1.6
+fog_height_max = -1.4
+fog_height_curve = 0.420448
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxLine" id=5]
+color = Color( 0.258301, 0.258301, 0.258301, 1 )
+thickness = 10
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.152941, 0.164706, 0.576471, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.152941, 0.164706, 0.576471, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 1, 1, 1, 0.490196 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 1, 1, 1, 0.588235 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 1, 1, 1, 0.392157 )
+
+[node name="Main" type="Spatial"]
+pause_mode = 2
+script = ExtResource( 8 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0 )
+
+[node name="UI" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 40.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerTurnLabel" type="Label" parent="UI"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -90.0
+margin_top = 27.0
+margin_right = 93.0
+margin_bottom = 87.0
+custom_fonts/font = ExtResource( 9 )
+text = "Player 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player1Score" type="Label" parent="UI"]
+margin_left = -597.0
+margin_top = 21.0
+margin_right = -539.0
+margin_bottom = 81.0
+custom_fonts/font = ExtResource( 9 )
+text = "99"
+
+[node name="Player2Score" type="Label" parent="UI"]
+margin_left = 579.0
+margin_top = 19.0
+margin_right = 637.0
+margin_bottom = 79.0
+custom_fonts/font = ExtResource( 9 )
+text = "99"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Map" type="Spatial" parent="."]
+script = ExtResource( 1 )
+_cellSize = Vector2( 1.1, 1.1 )
+_hexagonTilePackedScene = ExtResource( 2 )
+_piecePackedScene = ExtResource( 3 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="CameraPivot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+script = ExtResource( 4 )
+
+[node name="Camera" type="Camera" parent="CameraPivot"]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 7, 8 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseScreen" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PauseScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.588235 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PauseScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 300
+custom_constants/margin_top = 200
+custom_constants/margin_left = 300
+custom_constants/margin_bottom = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseScreen/MarginContainer"]
+margin_left = 300.0
+margin_top = 200.0
+margin_right = 980.0
+margin_bottom = 520.0
+
+[node name="Paused" type="Label" parent="CanvasLayer/PauseScreen/MarginContainer/VBoxContainer"]
+margin_right = 680.0
+margin_bottom = 134.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 3 )
+text = "PAUSED"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseScreen/MarginContainer/VBoxContainer"]
+margin_top = 138.0
+margin_right = 680.0
+margin_bottom = 272.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sound" type="Label" parent="CanvasLayer/PauseScreen/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_top = 43.0
+margin_right = 264.0
+margin_bottom = 91.0
+custom_fonts/font = SubResource( 4 )
+text = "Sound Volume"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/PauseScreen/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 268.0
+margin_right = 680.0
+margin_bottom = 134.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_styles/slider = SubResource( 5 )
+custom_styles/grabber_area_highlight = SubResource( 6 )
+custom_styles/grabber_area = SubResource( 7 )
+min_value = -100.0
+
+[node name="Button" type="Button" parent="CanvasLayer/PauseScreen/MarginContainer/VBoxContainer"]
+margin_top = 276.0
+margin_right = 680.0
+margin_bottom = 296.0
+text = "Restart"
+
+[node name="Button2" type="Button" parent="CanvasLayer/PauseScreen/MarginContainer/VBoxContainer"]
+margin_top = 300.0
+margin_right = 680.0
+margin_bottom = 320.0
+text = "Restart"
+
+[node name="Button" type="Button" parent="CanvasLayer/PauseScreen/MarginContainer/VBoxContainer/Button2"]
+margin_top = 300.0
+margin_right = 680.0
+margin_bottom = 320.0
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WinScreen" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/WinScreen"]
+stream = ExtResource( 11 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/WinScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.588235 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasLayer/WinScreen"]
+position = Vector2( 633, 4 )
+amount = 200
+lifetime = 10.0
+texture = ExtResource( 12 )
+emission_shape = 2
+emission_rect_extents = Vector2( 640, 1 )
+color = Color( 1, 0, 0, 1 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/WinScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 300
+custom_constants/margin_top = 200
+custom_constants/margin_left = 300
+custom_constants/margin_bottom = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/WinScreen/MarginContainer"]
+margin_left = 300.0
+margin_top = 200.0
+margin_right = 980.0
+margin_bottom = 520.0
+
+[node name="Player" type="Label" parent="CanvasLayer/WinScreen/MarginContainer/VBoxContainer"]
+margin_right = 680.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 9 )
+text = "Player"
+align = 1
+valign = 1
+
+[node name="Wins" type="Label" parent="CanvasLayer/WinScreen/MarginContainer/VBoxContainer"]
+margin_top = 64.0
+margin_right = 680.0
+margin_bottom = 216.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 3 )
+text = "Wins!!"
+align = 1
+valign = 1
+
+[node name="NewGame" type="Button" parent="CanvasLayer/WinScreen/MarginContainer/VBoxContainer"]
+margin_top = 220.0
+margin_right = 680.0
+margin_bottom = 320.0
+rect_min_size = Vector2( 0, 100 )
+custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+text = "New Game"
+
+[connection signal="value_changed" from="CanvasLayer/PauseScreen/MarginContainer/VBoxContainer/HBoxContainer/HSlider" to="CanvasLayer/PauseScreen" method="_on_HSlider_value_changed"]
+[connection signal="button_up" from="CanvasLayer/WinScreen/MarginContainer/VBoxContainer/NewGame" to="CanvasLayer/WinScreen" method="_on_NewGame_button_up"]

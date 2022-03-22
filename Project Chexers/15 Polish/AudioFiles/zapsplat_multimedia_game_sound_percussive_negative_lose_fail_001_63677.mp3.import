@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_multimedia_game_sound_percussive_negative_lose_fail_001_63677.mp3-4b47b746dad7f904c0aebebc46ff5f69.mp3str"
+
+[deps]
+
+source_file="res://AudioFiles/zapsplat_multimedia_game_sound_percussive_negative_lose_fail_001_63677.mp3"
+dest_files=[ "res://.import/zapsplat_multimedia_game_sound_percussive_negative_lose_fail_001_63677.mp3-4b47b746dad7f904c0aebebc46ff5f69.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
